@@ -1,0 +1,87 @@
+mutation githubAuth {
+  githubAuth(code:"513873e5a7b77a2edce8") {
+    user {
+      name
+      githubLogin      
+    }
+    token
+  }
+}
+
+query me {
+  me {
+    name
+    avatar
+  }
+}
+
+
+query listPhotosMongo {
+  allPhotosMongo {
+    id
+    name
+    url
+    postedBy {
+      name
+    }
+  }
+}
+
+query listPhotos {
+  allPhotos {
+    url
+    taggedUsers {
+      name
+    }
+  }
+}
+
+query allUsers {
+  allUsers {
+    name
+    postedPhotos {
+      name
+      description
+      category
+    }
+    
+  }
+}
+
+query allPhotos {
+  allPhotos {
+    	id
+			name
+    	description
+    	url
+    	created
+    	postedBy {
+        name
+      }
+  }
+}
+
+
+query totalPhotos {
+  totalPhotos
+}
+
+
+#mutation newPhoto($name: String!, $description: String) {
+#    postPhoto(name: $name, description: $description) {
+#    	id
+#			name
+#    	description
+#  	}
+#}
+
+mutation newPhoto($input: PostPhotoInput!) {
+  postPhoto(input:$input) {
+    id
+    name
+    url
+    description
+    category
+    githubUser
+  }
+}

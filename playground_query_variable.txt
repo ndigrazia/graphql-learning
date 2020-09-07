@@ -1,0 +1,7 @@
+{
+  "input": {
+    "name": "sample photo A",
+    "description": "A sample photo for our dataset",
+    "githubUser": "mHattrup"
+ }
+}
